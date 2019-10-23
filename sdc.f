@@ -1,4 +1,4 @@
-c Convert coordinates of a point by short distance conversion (SDC)
+c Convert coordinates of a geographical point by short distance conversion (SDC)
 
 c	subroutine sdc2(x, y, xlat, xlon, i)     ! 22.Okt. 1990
 
@@ -22,7 +22,7 @@ c	Parameters:
         integer		trimlen
         real		x(5000), y(5000)
         doubleprecision xlat(5000), xlon(5000)
-               
+
         include "geocoord.inc"
 
 c--- get input parameter file name:
@@ -45,7 +45,7 @@ c--- get input parameter file name:
 c--  get input file data:
         call freeunit(fu_inp)
         open(unit=fu_inp,status='old',file=fn_inp,err=997,iostat=io_stat)
-        
+
         l = 1
 
 c--  Loop to read input file:
@@ -54,7 +54,7 @@ c--  Loop to read input file:
         if (l.eq.1) then
         read (line,*,err=999) lat_Orig,lon_Orig,dep_Orig,i,rota
         end if
-	
+
         if (l.gt.1) then
           if (i.eq.-1) then
            read (line,*,err=999) xlat(l-1), xlon(l-1)
@@ -95,7 +95,7 @@ c---    Writing output file
 998    	write(*,*)'>>> ERROR WRITING OUTPUT FILE'
         goto 1000
 999     write (*,*)'>>> ERROR READING DATA IN LINE ',l
-        write (*,*) line   
+        write (*,*) line
 1000   	stop 'Program run aborted!'
-1001    write(*,*)'Done! Check "sdc.out" !'
-	    end  ! end of rutine
+1001    write(*,*)'Done! Please check "sdc.out" !'
+	    end  ! end of routine
