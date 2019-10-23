@@ -1,3 +1,3 @@
 # SDC
-Convert coordinates of a geographical point by Short Distance Conversion (SDC) . 
+Convert coordinates of a geographical point by Short Distance Conversion (SDC) .   
 Type ```make``` and ```sdc``` to use . 
